@@ -18,6 +18,7 @@ return new class extends Migration
         $table->string('name');
         $table->string('email');
         $table->string('address');
+        $table->string('dob');
         $table->timestamps();
     });
 }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('companies');   
     }
 };

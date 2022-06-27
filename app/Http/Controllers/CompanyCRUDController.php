@@ -40,6 +40,7 @@ $company = new Company;
 $company->name = $request->name;
 $company->email = $request->email;
 $company->address = $request->address;
+$company->dob = $request->dob;
 $company->save();
 return redirect()->route('companies.index')
 ->with('success','Customer has been created successfully.');
