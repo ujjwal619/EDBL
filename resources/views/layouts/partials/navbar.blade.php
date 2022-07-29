@@ -6,13 +6,80 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="{{ route ('home.index') }}" class="nav-link px-2 text-secondary">Home</a></li>
+        <li><a href="{{ route ('customers.index') }}" class="nav-link px-2 text-white">Home</a></li>
          <li><a href="https://www.edb.com.np/" target="_blank" class="nav-link px-2 text-white">About</a></li>
+         <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-2 text-white" href="#" data-bs-toggle="dropdown">Report</a>
+              <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/customers/report"> Loan Master List (LML) </a></li>
+              <li><a class="dropdown-item" href="#"> Daily Summary Report (DSR) </a></li>
+              <li><a class="dropdown-item" href="#"> Consolidating Trial Balance (CTBAB) </a></li>
+              <li><a class="dropdown-item" href="#"> Dropdown item 2 &raquo; </a>
+                 <ul class="submenu dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Submenu item 3 &raquo; </a>
+                    <ul class="submenu dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Multi level 1</a></li>
+                      <li><a class="dropdown-item" href="#">Multi level 2</a></li>
+                  </ul>
+                  </li>
+               </ul>
+              </li>
+              </ul>
+          </li>
+           </ul>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
         <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
       </form>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"crossorigin="anonymous"></script>
+
+      <script type="text/javascript">
+        //	window.addEventListener("resize", function() {
+        //		"use strict"; window.location.reload(); 
+        //	});
+          document.addEventListener("DOMContentLoaded", function(){
+              /////// Prevent closing from click inside dropdown
+            document.querySelectorAll('.dropdown-menu').forEach(function(element){
+              element.addEventListener('click', function (e) {
+                e.stopPropagation();
+              });
+            })
+            // make it as accordion for smaller screens
+            if (window.innerWidth < 992) {
+              // close all inner dropdowns when parent is closed
+              document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
+                everydropdown.addEventListener('hidden.bs.dropdown', function () {
+                  // after dropdown is hidden, then find all submenus
+                    this.querySelectorAll('.submenu').forEach(function(everysubmenu){
+                      // hide every submenu as well
+                      everysubmenu.style.display = 'none';
+                    });
+                })
+              });
+              document.querySelectorAll('.dropdown-menu a').forEach(function(element){
+                element.addEventListener('click', function (e) {
+            
+                    let nextEl = this.nextElementSibling;
+                    if(nextEl && nextEl.classList.contains('submenu')) {	
+                      // prevent opening link if link needs to open dropdown
+                      e.preventDefault();
+                      console.log(nextEl);
+                      if(nextEl.style.display == 'block'){
+                        nextEl.style.display = 'none';
+                      } else {
+                        nextEl.style.display = 'block';
+                      }
+                    }
+                });
+              })
+            }
+            // end if innerWidth
+          }); 
+          // DOMContentLoaded  end
+        </script>
 
       @auth
         {{auth()->user()->name}}

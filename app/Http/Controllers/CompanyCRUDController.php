@@ -21,7 +21,7 @@ return view('companies.index', $data);
 */
 public function create()
 {
-return view('companies.create');
+    return view('companies.create');
 }
 /**
 * Store a newly created resource in storage.
@@ -40,7 +40,6 @@ $company = new Company;
 $company->name = $request->name;
 $company->email = $request->email;
 $company->address = $request->address;
-$company->dob = $request->dob;
 $company->save();
 return redirect()->route('companies.index')
 ->with('success','Customer has been created successfully.');
@@ -72,7 +71,7 @@ return view('companies.edit',compact('company'));
 * @param  \App\company  $company
 * @return \Illuminate\Http\Response
 */
-public function update(Request $request, $id)
+public function test(Customer $customer, $id)
 {
 $request->validate([
 'name' => 'required',

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title> Online Form || Excel Development Bank </title>
+<title>Excel Development Bank</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
 <body>
@@ -13,7 +13,7 @@
 <h2>Excel Development Bank</h2>
 </div>
 <div class="pull-right mb-2">
-<a class="btn btn-success" href="{{ route ('companies.create') }}"> Create Customer</a>
+<a class="btn btn-success" href="{{ route('companies.create') }}"> Create Company</a>
 </div>
 </div>
 </div>
@@ -25,9 +25,9 @@
 <table class="table table-bordered">
 <tr>
 <th>S.No</th>
-<th>Customer Name</th>
-<th>Customer Email</th>
-<th>Customer Address</th>
+<th>Company Name</th>
+<th>Company Email</th>
+<th>Company Address</th>
 <th width="280px">Action</th>
 </tr>
 @foreach ($companies as $company)

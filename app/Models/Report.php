@@ -5,13 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Report extends Model
 {
-    protected $fillable = [
-        'names',
-        'email',
-        'password',
-        'dob',
-    ];
     use HasFactory;
 }
